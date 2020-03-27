@@ -6,27 +6,21 @@ import { IUser } from './user.model';
 })
 export class AuthService {
   private currentUser: IUser;
-  public signUpUser(
-    firstName: string,
-    lastName: string,
-    otherName: string,
-    phoneNumber: string,
-    email: string,
-    password: string,
-    confirmPassword: string)
+  public signUpUser(user: IUser): IUser
   {
-    this.currentUser = {
-      firstName,
-      lastName,
-      otherName,
-      phoneNumber,
-      email,
-      password,
-      confirmPassword
+    return this.currentUser = {
+      id: 1,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      otherName: user.otherName,
+      phoneNumber: user.phoneNumber,
+      email: user.email,
+      password: user.password,
+      confirmPassword: user.confirmPassword
     };
   }
 
-  public getCurrentUser() {
+  public getCurrentUser(): IUser {
     return this.currentUser;
   }
 

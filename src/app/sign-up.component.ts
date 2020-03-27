@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {IUser} from './user.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,13 +13,13 @@ import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} f
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
-  private firstName: FormControl;
-  private lastName: FormControl;
-  private otherName: FormControl;
-  private phoneNumber: FormControl;
-  private email: FormControl;
-  private password: FormControl;
-  private confirmPassword: FormControl;
+  firstName: FormControl;
+  lastName: FormControl;
+  otherName: FormControl;
+  phoneNumber: FormControl;
+  email: FormControl;
+  password: FormControl;
+  confirmPassword: FormControl;
 
   constructor(private authService: AuthService,
               private router: Router) { }
@@ -46,15 +47,17 @@ export class SignUpComponent implements OnInit {
 
   signUpUser(formValues) {
     if (this.signUpForm.valid) {
-      this.authService.signUpUser(
-        formValues.firstName,
-        formValues.lastName,
-        formValues.otherName,
-        formValues.phoneNumber,
-        formValues.email,
-        formValues.password,
-        formValues.confirmPassword
-      );
+      const user: IUser = {
+        id: undefined,
+        firstName: formValues.firstName,
+        lastName: formValues.lastName,
+        otherName: formValues.otherName,
+        phoneNumber: formValues.phoneNumber,
+        email: formValues.email,
+        password: formValues.password,
+        confirmPassword: formValues.confirmPassword
+      };
+      this.authService.signUpUser(user);
       this.router.navigate(['user']);
     }
   }

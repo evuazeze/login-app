@@ -9,51 +9,65 @@
       <div class="form-group">
         <label for="firstName">*First Name:</label>
         <em *ngIf="!validateFirstName() &&
-            signUpForm.controls.firstName.errors.required">Required</em>
+            firstName.errors.required">Required</em>
         <em *ngIf="!validateFirstName() &&
-            signUpForm.controls.firstName.errors.pattern">Must start with a letter</em>
+            firstName.errors.pattern">Must start with a letter</em>
         <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name" />
       </div>
       <div class="form-group" >
         <label for="lastName">*Last Name:</label>
         <em *ngIf="!validateLastName() &&
-            signUpForm.controls.lastName.errors.required">Required</em>
+            lastName.errors.required">Required</em>
         <em *ngIf="!validateLastName() &&
-            signUpForm.controls.lastName.errors.pattern">Must start with a letter</em>
+            lastName.errors.pattern">Must start with a letter</em>
         <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name" />
       </div>
       <div class="form-group" >
         <label for="otherName">Other Name:</label>
         <em *ngIf="!validateOtherName() &&
-            signUpForm.controls.otherName.errors.pattern">Must start with a letter</em>
+            otherName.errors.pattern">Must start with a letter</em>
         <input formControlName="otherName" id="otherName" type="text" class="form-control" placeholder="Other Name" />
       </div>
       <div class="form-group" >
         <label for="phoneNumber">*Phone Number:</label>
         <em *ngIf="!validatePhoneNumber() &&
-            signUpForm.controls.phoneNumber.errors.pattern">Must be a number</em>
+            phoneNumber.errors.required">Required</em>
+        <em *ngIf="!validatePhoneNumber() &&
+            phoneNumber.errors.pattern">Must be a number</em>
         <input formControlName="phoneNumber" id="phoneNumber" type="text" class="form-control" placeholder="Phone Number" />
       </div>
       <div class="form-group" >
         <label for="email">*Email:</label>
         <em *ngIf="!validateEmail() &&
-            signUpForm.controls.email.errors">Must be a valid email</em>
+            email.errors.required">Required</em>
+        <em *ngIf="!validateEmail() &&
+            email.errors.email">Must be a valid email</em>
         <input formControlName="email" id="email" type="text" class="form-control" placeholder="Email" />
       </div>
       <div class="form-group" >
         <label for="password">*Password:</label>
         <em *ngIf="!validatePassword() &&
-            signUpForm.controls.password.errors">Must be a valid password</em>
+            password.errors.required">Required</em>
+        <em *ngIf="!validatePassword() &&
+            password.errors.invalidLength">Must be up to 8 characters</em>
+        <em *ngIf="!validatePassword() &&
+            password.errors.noLowerCase">Must contain a lowercase letter</em>
+        <em *ngIf="!validatePassword() &&
+            password.errors.noUpperCase">Must contain an uppercase letter</em>
+        <em *ngIf="!validatePassword() &&
+            password.errors.noNumber">Must contain a number</em>
+        <em *ngIf="!validatePassword() &&
+            password.errors.noSymbol">Must contain a symbol</em>
         <input formControlName="password" id="password" type="password" class="form-control" placeholder="Password" />
       </div>
       <div class="form-group" >
         <label for="confirmPassword">*Confirm Password:</label>
         <em *ngIf="!validateConfirmPassword() &&
-            signUpForm.controls.password.errors">Must be a valid password</em>
+            password.errors">Must be a valid password</em>
         <input formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
       </div>
 
-      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">Sign Up</button>
     </form>
   </div>
 </div>
