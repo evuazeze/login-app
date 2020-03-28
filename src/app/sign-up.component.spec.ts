@@ -11,8 +11,6 @@ import {IUser} from './user.model';
 describe('SignUpComponent', () => {
   let component: SignUpComponent;
   let fixture: ComponentFixture<SignUpComponent>;
-  let element: HTMLElement;
-  let debugEl: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -30,9 +28,6 @@ describe('SignUpComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SignUpComponent);
     component = fixture.componentInstance;
-    debugEl = fixture.debugElement;
-    element = fixture.nativeElement;
-
     fixture.detectChanges();
   });
 
@@ -47,6 +42,8 @@ describe('SignUpComponent', () => {
     lastName.setValue('Evuazeze');
     const otherName = component.signUpForm.controls.otherName;
     otherName.setValue('Oghenewegba');
+    const gender = component.signUpForm.controls.gender;
+    gender.setValue('Male');
     const phoneNumber = component.signUpForm.controls.phoneNumber;
     phoneNumber.setValue('08032774668');
     const email = component.signUpForm.controls.email;
@@ -66,6 +63,8 @@ describe('SignUpComponent', () => {
     lastName.setValue('Evuazeze');
     const otherName = component.signUpForm.controls.otherName;
     otherName.setValue('Oghenewegba');
+    const gender = component.signUpForm.controls.gender;
+    gender.setValue('Male');
     const phoneNumber = component.signUpForm.controls.phoneNumber;
     phoneNumber.setValue('08032774668');
     const email = component.signUpForm.controls.email;
@@ -88,6 +87,8 @@ describe('SignUpComponent', () => {
       lastName.setValue('Evuazeze');
       const otherName = component.signUpForm.controls.otherName;
       otherName.setValue('Oghenewegba');
+      const gender = component.signUpForm.controls.gender;
+      gender.setValue('Male');
       const phoneNumber = component.signUpForm.controls.phoneNumber;
       phoneNumber.setValue('08032774668');
       const email = component.signUpForm.controls.email;
@@ -102,6 +103,7 @@ describe('SignUpComponent', () => {
         firstName: firstName.value,
         lastName: lastName.value,
         otherName: otherName.value,
+        gender: gender.value,
         phoneNumber: phoneNumber.value,
         email: email.value,
         password: password.value,

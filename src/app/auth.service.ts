@@ -13,6 +13,7 @@ export class AuthService {
       firstName: user.firstName,
       lastName: user.lastName,
       otherName: user.otherName,
+      gender: user.gender,
       phoneNumber: user.phoneNumber,
       email: user.email,
       password: user.password,

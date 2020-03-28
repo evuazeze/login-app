@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {IUser} from './user.model';
+import {PasswordValidator} from './password.validator';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,6 +17,7 @@ export class SignUpComponent implements OnInit {
   firstName: FormControl;
   lastName: FormControl;
   otherName: FormControl;
+  gender: FormControl;
   phoneNumber: FormControl;
   email: FormControl;
   password: FormControl;
@@ -29,20 +31,22 @@ export class SignUpComponent implements OnInit {
     this.firstName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.lastName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z].*')]);
     this.otherName = new FormControl('', [Validators.pattern('[a-zA-Z].*')]);
+    this.gender = new FormControl('', [Validators.required]);
     this.phoneNumber = new FormControl('', [Validators.required, Validators.pattern('[0-9].*')]);
     this.email = new FormControl('', [Validators.required, Validators.email]);
-    this.password = new FormControl('', [Validators.required, this.mustBeValid]);
-    this.confirmPassword = new FormControl('', [Validators.required, this.mustBeValid]);
+    this.password = new FormControl('', [Validators.required, PasswordValidator.mustBeValid]);
+    this.confirmPassword = new FormControl('', [Validators.required]);
 
     this.signUpForm = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName,
       otherName: this.otherName,
+      gender: this.gender,
       phoneNumber: this.phoneNumber,
       email: this.email,
       password: this.password,
       confirmPassword: this.confirmPassword
-    });
+    }, this.checkPasswords);
   }
 
   signUpUser(formValues) {
@@ -52,6 +56,7 @@ export class SignUpComponent implements OnInit {
         firstName: formValues.firstName,
         lastName: formValues.lastName,
         otherName: formValues.otherName,
+        gender: formValues.gender,
         phoneNumber: formValues.phoneNumber,
         email: formValues.email,
         password: formValues.password,
@@ -62,47 +67,18 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  validateFirstName() {
-    return this.firstName.valid || this.firstName.untouched;
-  }
-
-  validateLastName() {
-    return this.lastName.valid || this.lastName.untouched;
-  }
-
-  validateOtherName() {
-    return this.otherName.valid || this.otherName.untouched;
-  }
-
-  validatePhoneNumber() {
-    return this.phoneNumber.valid || this.phoneNumber.untouched;
-  }
-
-  validateEmail() {
-    return this.email.valid || this.email.untouched;
-  }
-
-  mustBeValid(control: FormControl): ValidationErrors | null {
-    const value = control.value as string;
-
-    if (value.length < 8) { return {invalidLength: true}; }
-
-    if (!(/[a-z]/.test(value))) { return {noLowerCase: true}; }
-
-    if (!(/[A-Z]/.test(value))) { return {noUpperCase: true}; }
-
-    if (!(/[0-9]/.test(value))) { return {noNumber: true}; }
-
-    if (!(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(value))) { return {noSymbol: true}; }
-
-    return null;
-  }
-
-  validatePassword() {
-    return this.password.valid || this.password.untouched;
+  validate(control: AbstractControl) {
+    return control.valid || control.untouched;
   }
 
   validateConfirmPassword() {
-    return this.confirmPassword.valid || this.confirmPassword.untouched;
+    return this.confirmPassword.touched && !!this.signUpForm.hasError('notSame');
+  }
+
+  checkPasswords(group: FormGroup) {
+    const pass = group.get('password').value;
+    const confirmPass = group.get('confirmPassword').value;
+
+    return pass === confirmPass ? null : { notSame: true };
   }
 }

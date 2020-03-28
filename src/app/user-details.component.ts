@@ -3,10 +3,7 @@ import { AuthService } from './auth.service';
 import {IUser} from './user.model';
 
 @Component({
-  templateUrl: './user-details.component.html',
-  styles: [`
-    /*.container { padding-left: 20px; padding-right: 20px;}*/
-  `]
+  templateUrl: './user-details.component.html'
 })
 export class UserDetailsComponent implements OnInit {
   user: IUser;
