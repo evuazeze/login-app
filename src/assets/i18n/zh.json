@@ -1,0 +1,33 @@
+{
+	"SIGN_UP": {
+		"CONFIRM_PASSWORD": "确认密码",
+		"EMAIL": "电子邮件",
+		"FEMALE": "女",
+		"FIRST_NAME": "名字",
+		"GENDER": "性别",
+		"LAST_NAME": "姓",
+		"MALE": "男",
+		"OTHER_NAME": "其他名字：",
+		"PASSWORD": "密码",
+		"PHONE_NUMBER": "电话号码",
+		"PLEASE_SELECT": "请选择",
+		"SELECT": "选择一种语言",
+		"SIGN_UP_BUTTON_TEXT": "注册",
+		"TITLE": "报名表格",
+		"VALIDATION_LETTER_START": "必须以字母开头",
+		"VALIDATION_MATCH_PASSWORD": "必须与密码字段匹配",
+		"VALIDATION_MUST_BE_NUMBER": "必须是数字",
+		"VALIDATION_MUST_BE_VALID_EMAIL": "",
+		"VALIDATION_REQUIRED": "需要",
+		"VALIDATION_VALID_PASSWORD": "必须是有效密码"
+	},
+	"USER_DETAILS": {
+		"EMAIL": "电子邮件",
+		"FIRST_NAME": "名字",
+		"GENDER": "性别",
+		"LAST_NAME": "姓",
+		"OTHER_NAME": "其他名字",
+		"PHONE_NUMBER": "电话号码",
+		"TITLE": "用户详情"
+	}
+}

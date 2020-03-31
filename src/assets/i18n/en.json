@@ -1,0 +1,33 @@
+{
+	"SIGN_UP": {
+		"CONFIRM_PASSWORD": "Confirm Password",
+		"EMAIL": "Email",
+		"FEMALE": "Female",
+		"FIRST_NAME": "First Name",
+		"GENDER": "Gender",
+		"LAST_NAME": "Last Name",
+		"MALE": "Male",
+		"OTHER_NAME": "Other Name:",
+		"PASSWORD": "Password",
+		"PHONE_NUMBER": "Phone Number",
+		"PLEASE_SELECT": "Please select",
+		"SELECT": "Select a Language",
+		"SIGN_UP_BUTTON_TEXT": "Sign Up",
+		"TITLE": "Registration Form",
+		"VALIDATION_LETTER_START": "Must start with a letter",
+		"VALIDATION_MATCH_PASSWORD": "Must match password field",
+		"VALIDATION_MUST_BE_NUMBER": "Must be a number",
+		"VALIDATION_MUST_BE_VALID_EMAIL": "Must be a valid email",
+		"VALIDATION_REQUIRED": "Required",
+		"VALIDATION_VALID_PASSWORD": "Must be a valid password"
+	},
+	"USER_DETAILS": {
+		"EMAIL": "Email",
+		"FIRST_NAME": "First Name",
+		"GENDER": "Gender",
+		"LAST_NAME": "Last Name",
+		"OTHER_NAME": "Other Name",
+		"PHONE_NUMBER": "Phone Number",
+		"TITLE": "User Details"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"SIGN_UP": {
+		"CONFIRM_PASSWORD": "Confirmez le mot de passe",
+		"EMAIL": "Email",
+		"FEMALE": "Femelle",
+		"FIRST_NAME": "Prénom",
+		"GENDER": "Le sexe",
+		"LAST_NAME": "Nom de famille",
+		"MALE": "Mâle",
+		"OTHER_NAME": "Autre nom:",
+		"PASSWORD": "Mot de passe",
+		"PHONE_NUMBER": "Numéro de téléphone",
+		"PLEASE_SELECT": "Veuillez choisir",
+		"SELECT": "Sélectionnez une langue",
+		"SIGN_UP_BUTTON_TEXT": "S'inscrire",
+		"TITLE": "Formulaire d'inscription",
+		"VALIDATION_LETTER_START": "Doit commencer par une lettre",
+		"VALIDATION_MATCH_PASSWORD": "Doit correspondre au champ du mot de passe",
+		"VALIDATION_MUST_BE_NUMBER": "Doit être un nombre",
+		"VALIDATION_MUST_BE_VALID_EMAIL": "",
+		"VALIDATION_REQUIRED": "Champs obligatoires",
+		"VALIDATION_VALID_PASSWORD": "Doit être un mot de passe valide"
+	},
+	"USER_DETAILS": {
+		"EMAIL": "Email",
+		"FIRST_NAME": "Prénom",
+		"GENDER": "Le sexe",
+		"LAST_NAME": "Nom de famille",
+		"OTHER_NAME": "Autre nom",
+		"PHONE_NUMBER": "Numéro de téléphone",
+		"TITLE": "Détails de l'utilisateur"
+	}
+}

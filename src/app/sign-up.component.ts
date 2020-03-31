@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {IUser} from './user.model';
 import {PasswordValidator} from './password.validator';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sign-up',
@@ -24,7 +25,13 @@ export class SignUpComponent implements OnInit {
   confirmPassword: FormControl;
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              public translate: TranslateService) {
+    translate.addLangs(['en', 'fr', 'zh']);
+    translate.setDefaultLang('en');
+    const  browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr|zh/) ? browserLang : 'en');
+  }
 
   ngOnInit() {
 

@@ -1,63 +1,75 @@
 <div class="container">
-  <h1>Registration Form</h1>
+  <h1>{{ 'SIGN_UP.TITLE' | translate }}</h1>
 
   <hr>
+
+  <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <label for="language">
+        {{ 'SIGN_UP.SELECT' | translate }}
+        <select #langselect (change)="translate.use(langselect.value)" class="custom-select" id="language">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}</option>
+        </select>
+      </label>
+    </div>
+  </div>
 
   <div class="col-md-6">
 
     <form [formGroup]="signUpForm" (ngSubmit)="signUpUser(signUpForm.value)" autocomplete="off">
       <div class="form-group">
-        <label for="firstName">*First Name:</label>
+        <label for="firstName">*{{ 'SIGN_UP.FIRST_NAME' | translate }}:</label>
         <em *ngIf="!validate(firstName) &&
-            firstName.errors.required">Required</em>
+            firstName.errors.required">{{ 'SIGN_UP.VALIDATION_REQUIRED' | translate }}</em>
         <em *ngIf="!validate(firstName) &&
-            firstName.errors.pattern">Must start with a letter</em>
-        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name" />
+            firstName.errors.pattern">{{ 'SIGN_UP.VALIDATION_LETTER_START' | translate }}</em>
+        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="{{ 'SIGN_UP.FIRST_NAME' | translate }}" />
       </div>
       <div class="form-group" >
-        <label for="lastName">*Last Name:</label>
+        <label for="lastName">*{{ 'SIGN_UP.LAST_NAME' | translate }}:</label>
         <em *ngIf="!validate(lastName) &&
-            lastName.errors.required">Required</em>
+            lastName.errors.required">{{ 'SIGN_UP.VALIDATION_REQUIRED' | translate }}</em>
         <em *ngIf="!validate(lastName) &&
-            lastName.errors.pattern">Must start with a letter</em>
-        <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name" />
+            lastName.errors.pattern">{{ 'SIGN_UP.VALIDATION_LETTER_START' | translate }}</em>
+        <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="{{ 'SIGN_UP.LAST_NAME' | translate }}" />
       </div>
       <div class="form-group" >
-        <label for="otherName">Other Name:</label>
+        <label for="otherName">{{ 'SIGN_UP.OTHER_NAME' | translate }}:</label>
         <em *ngIf="!validate(otherName) &&
-            otherName.errors.pattern">Must start with a letter</em>
-        <input formControlName="otherName" id="otherName" type="text" class="form-control" placeholder="Other Name" />
+            otherName.errors.pattern">{{ 'SIGN_UP.VALIDATION_LETTER_START' | translate }}</em>
+        <input formControlName="otherName" id="otherName" type="text" class="form-control" placeholder="{{ 'SIGN_UP.OTHER_NAME' | translate }}" />
       </div>
       <div class="form-group">
-        <label for="gender">*Gender</label>
+        <label for="gender">*{{ 'SIGN_UP.GENDER' | translate }}</label>
         <em *ngIf="!validate(gender) &&
-            gender.errors.required">Required</em>
+            gender.errors.required">{{ 'SIGN_UP.VALIDATION_REQUIRED' | translate }}</em>
         <select formControlName="gender" class="custom-select" id="gender">
-          <option value="" selected disabled>Please select</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          <option value="" selected disabled>{{ 'SIGN_UP.PLEASE_SELECT' | translate }}</option>
+          <option value="{{ 'SIGN_UP.MALE' | translate }}">{{ 'SIGN_UP.MALE' | translate }}</option>
+          <option value="{{ 'SIGN_UP.FEMALE' | translate }}">{{ 'SIGN_UP.FEMALE' | translate }}</option>
         </select>
       </div>
       <div class="form-group" >
-        <label for="phoneNumber">*Phone Number:</label>
+        <label for="phoneNumber">*{{ 'SIGN_UP.PHONE_NUMBER' | translate }}:</label>
         <em *ngIf="!validate(phoneNumber) &&
-            phoneNumber.errors.required">Required</em>
+            phoneNumber.errors.required">{{ 'SIGN_UP.VALIDATION_REQUIRED' | translate }}</em>
         <em *ngIf="!validate(phoneNumber) &&
-            phoneNumber.errors.pattern">Must be a number</em>
-        <input formControlName="phoneNumber" id="phoneNumber" type="text" class="form-control" placeholder="Phone Number" />
+            phoneNumber.errors.pattern">{{ 'SIGN_UP.VALIDATION_MUST_BE_NUMBER' | translate }}</em>
+        <input formControlName="phoneNumber" id="phoneNumber" type="text" class="form-control" placeholder="{{ 'SIGN_UP.PHONE_NUMBER' | translate }}" />
       </div>
       <div class="form-group" >
-        <label for="email">*Email:</label>
+        <label for="email">*{{ 'SIGN_UP.EMAIL' | translate }}:</label>
         <em *ngIf="!validate(email) &&
-            email.errors.required">Required</em>
+            email.errors.required">{{ 'SIGN_UP.VALIDATION_REQUIRED' | translate }}</em>
         <em *ngIf="!validate(email) &&
-            email.errors.email">Must be a valid email</em>
-        <input formControlName="email" id="email" type="text" class="form-control" placeholder="Email" />
+            email.errors.email">{{ 'SIGN_UP.VALIDATION_MUST_BE_VALID_EMAIL' | translate }}</em>
+        <input formControlName="email" id="email" type="text" class="form-control" placeholder="{{ 'SIGN_UP.EMAIL' | translate }}" />
       </div>
       <div class="form-group" >
-        <label for="password">*Password:</label>
+        <label for="password">*{{ 'SIGN_UP.PASSWORD' | translate }}:</label>
         <em *ngIf="!validate(password) &&
-            password.errors.required">Required</em>
+            password.errors.required">{{ 'SIGN_UP.VALIDATION_REQUIRED' | translate }}</em>
         <em *ngIf="(!validate(password) && !password.hasError('required')) &&
             (
             password.errors.invalidLength ||
@@ -65,16 +77,16 @@
             password.errors.noUpperCase ||
             password.errors.noNumber ||
             password.errors.noSymbol
-            )">Must be a valid password</em>
-        <input formControlName="password" id="password" type="password" class="form-control" placeholder="Password" />
+            )">{{ 'SIGN_UP.VALIDATION_VALID_PASSWORD' | translate }}</em>
+        <input formControlName="password" id="password" type="password" class="form-control" placeholder="{{ 'SIGN_UP.PASSWORD' | translate }}" />
       </div>
       <div class="form-group" >
-        <label for="confirmPassword">*Confirm Password:</label>
-        <em *ngIf="validateConfirmPassword()">Must match password field</em>
-        <input formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+        <label for="confirmPassword">*{{ 'SIGN_UP.CONFIRM_PASSWORD' | translate }}:</label>
+        <em *ngIf="validateConfirmPassword()">{{ 'SIGN_UP.VALIDATION_MATCH_PASSWORD' | translate }}</em>
+        <input formControlName="confirmPassword" id="confirmPassword" type="password" class="form-control" placeholder="{{ 'SIGN_UP.CONFIRM_PASSWORD' | translate }}" />
       </div>
 
-      <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">Sign Up</button>
+      <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">{{ 'SIGN_UP.SIGN_UP_BUTTON_TEXT' | translate }}</button>
     </form>
   </div>
 </div>

@@ -1,31 +1,31 @@
 <div class="container">
 
-      <h2>User Details</h2>
+      <h2>{{ 'USER_DETAILS.TITLE' | translate }}</h2>
   <hr>
 
     <table class="table table-bordered">
       <tr>
-        <th scope="row">First Name:</th>
+        <th scope="row">{{ 'USER_DETAILS.FIRST_NAME' | translate }}:</th>
         <td>{{user.firstName}}</td>
       </tr>
       <tr>
-        <th scope="row">Last Name:</th>
+        <th scope="row">{{ 'USER_DETAILS.LAST_NAME' | translate }}:</th>
         <td>{{user.lastName}}</td>
       </tr>
       <tr>
-        <th scope="row">Other Name:</th>
+        <th scope="row">{{ 'USER_DETAILS.OTHER_NAME' | translate }}:</th>
         <td>{{user?.otherName}}</td>
       </tr>
       <tr>
-        <th scope="row">Gender:</th>
+        <th scope="row">{{ 'USER_DETAILS.GENDER' | translate }}:</th>
         <td>{{user.gender}}</td>
       </tr>
       <tr>
-        <th scope="row">Phone Number:</th>
+        <th scope="row">{{ 'USER_DETAILS.PHONE_NUMBER' | translate }}:</th>
         <td>{{user.phoneNumber}}</td>
       </tr>
       <tr>
-        <th scope="row">Email:</th>
+        <th scope="row">{{ 'USER_DETAILS.EMAIL' | translate }}:</th>
         <td>{{user.email}}</td>
       </tr>
     </table>
